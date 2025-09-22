@@ -205,3 +205,29 @@ function soultrust_customize_color_css() { ?>
 add_action('wp_head', 'soultrust_customize_color_css');
 
 
+function remove_h1_from_tinymce_formats($init) {
+    // Only allow Paragraph, Heading 2, and Heading 3 (no Heading 1)
+    $init['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6';
+    return $init;
+}
+add_filter('tiny_mce_before_init', 'remove_h1_from_tinymce_formats');
+
+function mytheme_customize_register( $wp_customize ) {
+    $wp_customize->add_section( 'post_meta_section', array(
+        'title'    => __( 'Post Meta', 'mytheme' ),
+        'priority' => 30,
+    ) );
+
+    $wp_customize->add_setting( 'show_post_date', array(
+        'default'   => true,
+        'transport' => 'refresh',
+    ) );
+
+    $wp_customize->add_control( 'show_post_date', array(
+        'label'    => __( 'Show Post Date', 'mytheme' ),
+        'section'  => 'post_meta_section',
+        'settings' => 'show_post_date',
+        'type'     => 'checkbox',
+    ) );
+}
+add_action( 'customize_register', 'mytheme_customize_register' );

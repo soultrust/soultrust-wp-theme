@@ -12,11 +12,11 @@
     <header id="masthead" class="header">
       <div class="header-content">
         <div class="site-title-group">
-          <p class="site-title">
+          <div class="site-title">
             <a href="<?php echo esc_url( home_url('/') ); ?>">
               <?php bloginfo('name'); ?>
             </a>
-          </p>
+          </div>
           <p class="site-description">
             <?php bloginfo('description'); ?>
           </p>

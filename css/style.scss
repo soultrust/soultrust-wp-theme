@@ -155,8 +155,8 @@ p {
   font-family: "Lato";
   margin-bottom: 1.2rem;
   position: relative;
-  top: -0.2rem;
-  line-height: 1.6rem;
+  top: -0.4rem;
+  line-height: 1.8rem;
   z-index: -1;
 
   &:not(:last-child) {
@@ -184,6 +184,9 @@ p {
 
   a {
     text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -371,6 +374,7 @@ p {
     margin-bottom: 1.5rem;
     border-top: 1px solid #000;
     padding-top: 0.8rem;
+    line-height: 1.3;
   }
 }
 
