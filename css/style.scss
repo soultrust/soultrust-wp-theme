@@ -215,12 +215,13 @@ p {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 3fr 1fr;
+  align-items: flex-start;
 }
 
 .widget-area {
-  // position: sticky;
+  position: sticky;
   padding-top: 3rem;
-  // top: 3rem;
+  top: 3rem;
 }
 
 .entry {
