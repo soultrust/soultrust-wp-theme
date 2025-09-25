@@ -66,12 +66,6 @@ select {
 :root {
   --max-content-width: 940px;
 }
-:host {
-  position: sticky;
-  display: block; // this is the same as shown above
-  top: 0;
-  background: red;
-}
 
 body {
   position: relative;
@@ -220,8 +214,43 @@ p {
 
 .widget-area {
   position: sticky;
-  padding-top: 3rem;
-  top: 3rem;
+  margin-top: 3rem;
+  top: 1rem;
+  border-top: 1px solid #000;
+  padding-top: 0.8rem;
+
+  .widget:has(.tags) + .widget ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      border: 1px solid #000;
+      text-decoration: none;
+      padding: 0 0.4rem;
+      border-radius: 6px;
+      display: inline-block;
+      font-size: 0.9rem;
+      margin: 0 0.3rem 0.3rem 0;
+      background-color: rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      transition: background-color 0.3s ease-out;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .wp-block-categories {
+    li {
+      font-size: 1.2rem;
+    }
+  }
+  .search-form {
+    margin-bottom: 1.2rem;
+    display: flex;
+  }
 }
 
 .entry {
@@ -240,7 +269,7 @@ p {
 }
 .entry-title {
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -323,12 +352,11 @@ ul.block-list {
       width: auto !important;
     }
   }
-  &.img-group_1-2 {
-    // display: grid;
-    // grid-template-columns: 1fr 2fr;
+  &.img-group_P-L {
+    // portrait - landscape
     .wp-block-image:first-child {
-      width: 40%;
-      flex-basis: 40%;
+      // flex-basis: 40%;
+      flex-basis: 93.2%;
     }
 
     img {
@@ -355,8 +383,10 @@ ul.block-list {
   }
 
   &.img-group_P-Pv {
-    display: grid;
-    grid-template-columns: 1.329fr 1fr;
+    .wp-block-image {
+      flex-basis: 233.4%;
+    }
+    // flex-basis: 93.5%;
   }
 
   // .wp-block-image:last-child {
@@ -439,10 +469,6 @@ ul.block-list {
   }
 }
 
-// .wpvl_auto_thumb_box_wrapper {
-//   margin-bottom: 1rem;
-// }
-
 article {
   padding-bottom: 1rem;
 }
@@ -485,11 +511,13 @@ article {
   ul {
     margin: 0;
     padding-left: 1rem;
+    margin-bottom: 1.2rem;
   }
   .wp-block-heading {
     font-size: 1.2rem;
     font-weight: 100;
     text-transform: uppercase;
+    margin-bottom: 0.4rem;
   }
 }
 
@@ -508,6 +536,15 @@ code {
   position: relative;
   z-index: 1;
 
+  &:has(.alignleft) {
+    float: left;
+    margin-bottom: 0;
+  }
+  &:has(.alignright) {
+    float: right;
+    margin-bottom: 0;
+  }
+
   img {
     border: 2px solid;
     border-radius: 0.5rem;
@@ -517,10 +554,10 @@ code {
     float: left; /// conflict on svan?
   }
   figure.alignleft {
-    margin: 0;
+    margin-top: 0;
   }
   figure.alignright {
-    margin: 0;
+    margin-top: 0;
   }
   &.w-60 {
     width: 60%;
@@ -562,10 +599,9 @@ code {
       }
     }
   }
-  // &:has(.alignleft) {
-  //   float: left;
-  //   margin-bottom: 0;
-  // }
+  &.space-under {
+    margin-bottom: 1rem;
+  }
 }
 
 .align-left {

@@ -200,6 +200,9 @@ function soultrust_customize_color_css() { ?>
     .wp-block-image img {
       border-color: var(--border-color);
     }
+    .widget-area {
+      border-top-color: var(--border-color);
+    }
   </style>
 <?php }
 add_action('wp_head', 'soultrust_customize_color_css');
