@@ -24,7 +24,7 @@ function soultrust_enqueue_scripts_and_styles() {
   );
   wp_enqueue_style(
     'google-fonts2',
-    'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap',
+    'https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap',
     [], '', 'all'
   );
 }
@@ -178,7 +178,7 @@ function soultrust_customize_color_css() { ?>
     .site-description {
       color: <?php echo get_theme_mod('site_title_color'); ?>;
     }
-    .entry-header h1 {
+    .entry {
       border-top-color: var(--border-color);
     }
     .video_lightbox_auto_anchor_image {
@@ -231,3 +231,4 @@ function mytheme_customize_register( $wp_customize ) {
     ) );
 }
 add_action( 'customize_register', 'mytheme_customize_register' );
+
