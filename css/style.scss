@@ -149,6 +149,9 @@ body {
     height: auto;
     float: left;
   }
+  .entry-title {
+    margin-bottom: 1.5rem;
+  }
 }
 
 p {
@@ -659,4 +662,10 @@ code {
 
 .galleryberg-gallery-container {
   margin-bottom: 2rem;
+}
+
+.single {
+  .entry-title {
+    margin-bottom: 2rem;
+  }
 }
