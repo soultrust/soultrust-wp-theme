@@ -51,7 +51,7 @@ add_action('widgets_init', 'soultrust_widgets_init');
 
 
 // Color Customizer
-function color_customize_register($wp_customize) {
+function customize_register($wp_customize) {
   $wp_customize->add_setting('base_bg_color', array(
     'default' => '#ffffff',
     'transport' => 'refresh',
@@ -130,8 +130,35 @@ function color_customize_register($wp_customize) {
     ),
   ));
   $wp_customize->remove_section( 'colors');
+
+  // Blog Hoe Version 
+  // Add a section for Blog Layout
+    $wp_customize->add_section( 'blog_layout_section', array(
+        'title'    => __( 'Blog Home Layout', 'your-textdomain' ),
+        'priority' => 30,
+    ) );
+
+    // Add the setting
+    $wp_customize->add_setting( 'blog_home_version', array(
+        'default'           => 'full',
+        'sanitize_callback' => function( $input ) {
+            return in_array( $input, array( 'full', 'excerpt' ), true ) ? $input : 'full';
+        },
+    ) );
+
+    // Add the control (radio buttons)
+    $wp_customize->add_control( 'blog_home_version_control', array(
+        'label'    => __( 'Blog Home Version', 'your-textdomain' ),
+        'section'  => 'blog_layout_section',
+        'settings' => 'blog_home_version',
+        'type'     => 'radio',
+        'choices'  => array(
+            'full'    => __( 'Full Content', 'your-textdomain' ),
+            'excerpt' => __( 'Excerpt Only', 'your-textdomain' ),
+        ),
+    ) );
 }
-add_action('customize_register', 'color_customize_register');
+add_action('customize_register', 'customize_register');
 
 function hexToRgb($hex, $alpha = false) {
   $hex      = str_replace('#', '', $hex);
