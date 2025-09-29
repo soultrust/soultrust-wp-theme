@@ -99,10 +99,6 @@ body {
   }
   a {
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
@@ -133,7 +129,6 @@ body {
 }
 
 .site-main {
-  font-size: 16px;
   line-height: 24px;
 
   padding: {
@@ -152,6 +147,7 @@ body {
   .entry-featured-img {
     width: 200px;
     height: auto;
+    float: left;
   }
 }
 
@@ -160,8 +156,8 @@ p {
   margin-bottom: 1.2rem;
   position: relative;
   top: -0.4rem;
-  font-size: 1rem;
-  line-height: 1.55rem;
+  font-size: 1.125rem;
+  line-height: 1.7rem;
   z-index: 0;
 
   &:not(:last-child) {
@@ -249,6 +245,7 @@ p {
   .wp-block-categories {
     li {
       font-size: 1.2rem;
+      line-height: 1.5;
     }
   }
   .search-form {
@@ -260,6 +257,27 @@ p {
 .entry {
   border-top: 1px solid #000;
   padding-top: 0.8rem;
+
+  &.excerpt {
+    .entry-content {
+      display: flex;
+      align-items: flex-start;
+
+      p {
+        flex-basis: 65%;
+      }
+    }
+    a:hover {
+      .entry-title {
+        text-decoration: underline;
+      }
+      .entry-content {
+        p {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 .entry-header {
@@ -275,6 +293,7 @@ p {
   font-weight: 600;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 .entry-featured-img {
@@ -321,12 +340,14 @@ p {
   }
 }
 
-ul.block-list {
+ul.wp-block-list {
   width: auto;
 
   li {
     width: auto;
     margin-bottom: 0;
+    font-size: 1.125rem;
+    line-height: 1.7rem;
 
     a[rel="wp-video-lightbox"] {
       margin-bottom: 0;
@@ -519,7 +540,7 @@ article {
   ul {
     margin: 0;
     padding-left: 1rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
   }
   .wp-block-heading {
     font-size: 1.2rem;
@@ -605,6 +626,11 @@ code {
       img {
         width: auto !important;
       }
+    }
+  }
+  &.w-100 {
+    img {
+      width: 100%;
     }
   }
   &.space-under {

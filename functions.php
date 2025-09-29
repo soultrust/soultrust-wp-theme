@@ -262,3 +262,8 @@ function mytheme_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'mytheme_customize_register' );
 
+// Customize excerpt length 
+function wpdocs_custom_excerpt_length( $length ) {
+	return 40;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
