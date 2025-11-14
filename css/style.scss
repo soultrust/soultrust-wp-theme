@@ -323,6 +323,7 @@ p {
 
   .yotu-playlist {
     padding: 0;
+    z-index: 1;
   }
   .yotu-videos {
     padding-top: 0;
@@ -496,11 +497,14 @@ ul.wp-block-list {
       margin-right: 1rem;
     }
   }
+
+  &.align-left {
+    margin-right: 1rem;
+  }
 }
 
 .align-left {
   float: left;
-  margin-right: 1rem;
 }
 
 article {
