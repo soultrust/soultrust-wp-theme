@@ -262,8 +262,17 @@ function mytheme_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'mytheme_customize_register' );
 
+
 // Customize excerpt length 
 function wpdocs_custom_excerpt_length( $length ) {
 	return 40;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+// Make admin accept webp images
+function webp_upload_mimes($existing_mimes) {
+  $existing_mimes['webp'] = 'image/webp';
+  return $existing_mimes;
+}
+add_filter('upload_mimes', 'webp_upload_mimes');
